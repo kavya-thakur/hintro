@@ -2,37 +2,30 @@ const sendResponse = require("../utils/sendResponse");
 
 function getEvaluation(req, res) {
   return sendResponse(req, res, 200, {
-    candidate: {
-      name: "Kavya",
-      email: "kavya@gmail.com",
-    },
+    candidateName: "Kavya",
 
-    project: {
-      name: "Hintro Meeting Intelligence API",
-      version: "1.0.0",
-    },
+    email: "kavya@gmail.com",
 
-    architecture: {
-      database: "MongoDB",
-      authentication: "JWT Cookie Authentication",
-      aiModel: "Gemini 2.5 Flash",
-      scheduler: "node-cron",
-      emailProvider: "Resend",
-    },
+    repositoryUrl: "https://github.com/kavya-thakur/hintro",
+
+    deployedUrl: "https://hintro-0foh.onrender.com",
+
+    externalIntegration: "Resend Email API",
 
     features: [
       "Authentication",
       "Meeting Management",
-      "Meeting Analysis",
+      "AI Meeting Analysis",
       "Grounded Citations",
       "Action Item Tracking",
       "Overdue Action Item Detection",
-      "Email Reminder System",
-      "Reminder Scheduler",
+      "Scheduled Reminder Job",
+      "Email Reminder Integration",
       "Swagger Documentation",
-      "Trace IDs",
-      "Centralized Error Handling",
+      "Request Traceability",
       "Structured Logging",
+      "Global Error Handling",
+      "Input Validation",
     ],
   });
 }
