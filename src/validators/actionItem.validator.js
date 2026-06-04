@@ -1,13 +1,13 @@
 const { z } = require("zod");
 
 const createActionItemSchema = z.object({
-  task: z.string().min(1),
+  task: z.string().trim().min(1, "Task is required"),
 
-  assignee: z.string().optional(),
+  assignee: z.string().trim().optional(),
 
-  meetingId: z.string(),
+  meetingId: z.string().regex(/^[0-9a-fA-F]{24}$/, "Invalid meeting id"),
 
-  dueDate: z.string(),
+  dueDate: z.iso.datetime(),
 });
 
 const updateStatusSchema = z.object({

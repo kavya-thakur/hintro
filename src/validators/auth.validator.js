@@ -1,7 +1,7 @@
 const { z } = require("zod");
 
 const registerSchema = z.object({
-  email: z.email("Invalid email").trim().toLowerCase(),
+  email: z.string().trim().toLowerCase().email("Invalid email address"),
 
   password: z
     .string()
