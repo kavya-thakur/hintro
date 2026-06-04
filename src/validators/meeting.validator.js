@@ -1,20 +1,32 @@
 const { z } = require("zod");
 
-const createActionItemSchema = z.object({
-  task: z.string().trim().min(1, "Task is required"),
+const transcriptSchema = z.object({
+  timestamp: z.string().trim().min(1, "Timestamp is required"),
 
-  assignee: z.string().trim().optional(),
+  speaker: z.string().trim().min(1, "Speaker is required"),
 
-  meetingId: z.string().regex(/^[0-9a-fA-F]{24}$/, "Invalid meeting id"),
-
-  dueDate: z.iso.datetime(),
+  text: z.string().trim().min(1, "Transcript text is required"),
 });
 
-const updateStatusSchema = z.object({
-  status: z.enum(["PENDING", "IN_PROGRESS", "COMPLETED"]),
+const participantSchema = z.object({
+  name: z.string().trim().min(1, "Participant name is required"),
+
+  email: z.string().trim().email("Invalid participant email"),
+});
+
+const createMeetingSchema = z.object({
+  title: z.string().trim().min(1, "Title is required"),
+
+  participants: z
+    .array(participantSchema)
+    .min(1, "At least one participant is required")
+    .max(10, "Maximum 10 participants allowed"),
+
+  meetingDate: z.iso.datetime(),
+
+  transcript: z.array(transcriptSchema).min(1, "Transcript cannot be empty"),
 });
 
 module.exports = {
-  createActionItemSchema,
-  updateStatusSchema,
+  createMeetingSchema,
 };
