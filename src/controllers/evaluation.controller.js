@@ -4,7 +4,7 @@ function getEvaluation(req, res) {
   return sendResponse(req, res, 200, {
     candidate: {
       name: "Kavya",
-      email: "YOUR_EMAIL",
+      email: "kavya@gmail.com",
     },
 
     project: {

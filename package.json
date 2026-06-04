@@ -1,14 +1,22 @@
 {
   "name": "hintro",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "AI-powered meeting intelligence platform for extracting summaries, decisions, follow-ups and action items from meeting transcripts.",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "ai",
+    "gemini",
+    "meeting-intelligence"
+  ],
+  "author": "Kavya",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@google/genai": "^2.7.0",
     "bcryptjs": "^3.0.3",
@@ -26,5 +34,8 @@
     "uuid": "^14.0.0",
     "winston": "^3.19.0",
     "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
   }
 }

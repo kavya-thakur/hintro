@@ -9,8 +9,10 @@ async function startServer() {
 
     require("./src/jobs/reminder.job");
 
-    app.listen(3000, () => {
-      console.log("Backend is running on port 3000");
+    const PORT = process.env.PORT || 3000;
+
+    app.listen(PORT, () => {
+      console.log(`Backend is running on port ${PORT}`);
     });
   } catch (error) {
     console.error("Failed to start server", error);
